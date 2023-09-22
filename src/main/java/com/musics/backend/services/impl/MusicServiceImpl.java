@@ -39,6 +39,7 @@ public class MusicServiceImpl implements MusicService {
     public MusicsDTO update(Long id, MusicsDTO musicsDTO) {
         return musicsRepository.findById(id)
                 .map(music -> {
+                    music.setId(musicsDTO.id());
                     music.setTitle(musicsDTO.title());
                     music.setDescription(musicsDTO.description());
                     music.setImage(musicsDTO.image());
